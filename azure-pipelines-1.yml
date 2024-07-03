@@ -28,7 +28,7 @@ stages:
         tags: |
           $(tag)
 - stage: Dev
-  displayName: Build an image
+  displayName: Dev
   jobs:
   - job: Dev
     displayName: Dev
@@ -36,7 +36,7 @@ stages:
       name: 'MyAgentPool1'
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Dev
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/DockerFile'
