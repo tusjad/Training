@@ -38,7 +38,7 @@ stages:
     - task: Docker@2
       displayName: Dev
       inputs:
-        command: 
+        command: build
         dockerfile: '$(Build.SourcesDirectory)/DockerFile'
         tags: |
           $(tag)
