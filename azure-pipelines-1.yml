@@ -42,11 +42,4 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/DockerFile'
         tags: |
           $(tag)
-# YAML file in the new-feature-branch
-schedules:
-- cron: '* * * * *'
-  displayName: Daily midnight build
-  branches:
-    include:
-    - main
-    - new-feature
+
