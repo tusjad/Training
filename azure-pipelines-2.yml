@@ -25,8 +25,8 @@ steps:
     TargetFolder: :'$(build.artifactsstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(build.artifactsstagingdirectory)'
-    ArtifactName: drop
+    PathtoPublish: '$(Build.ArtifactsStagingDirectory)'
+    ArtifactName: 'drop'
     publishLocation: 'Container'
 
 - script: echo '$(Pipeline.Workspace)'
