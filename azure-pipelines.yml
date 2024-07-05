@@ -7,7 +7,7 @@ trigger:
 - development
 
 pool:
-  name: 'MyAgentPool1'
+  name: 'Agent1'
 
 steps:
 
