@@ -22,7 +22,16 @@ steps:
     Contents: '**'
     TargetFolder: '$(Build.artifactstagingdirectory)'
     
-
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: '$(Build.artifactstagingdirectory)'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+    ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+    publishLocation: 'Container'
  
 
     
