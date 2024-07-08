@@ -22,11 +22,7 @@ steps:
     Contents: '**'
     TargetFolder: '$(Build.artifactstagingdirectory)'
     
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: '$(Pipeline.Workspace)'
-    publishLocation: 'pipeline'
-    artifact: 'drop'
+
  
 
     
