@@ -9,9 +9,16 @@ trigger:
 pool:
     name: 'Agent1'
 steps:
-- task: SonarQubeAnalyze@5
+- task: SonarQubePrepare@6
   inputs:
-   jdkversion: JAVA_HOME_11_X64
+    SonarQube: sonar
+    scannerMode: Other
+    extraProperties: 
+     sonar.projectName=MavenProject
+     sonar.projectkeys=MavenProject
+
+    
+  
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
