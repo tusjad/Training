@@ -19,9 +19,9 @@ steps:
      sonar.projectName=MavenProject
      sonar.projectkeys=MavenProject
 
-- task: SonarQubeAnalyze@6
+- task: SonarQubePublish@6
   inputs:
-    jdkversion: 'JAVA_HOME_17_X64'
+    pollingTimeoutSec: 300
   
 - task: Maven@4
   inputs:
