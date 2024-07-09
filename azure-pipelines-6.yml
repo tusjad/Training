@@ -1,0 +1,52 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- development
+
+
+
+stages:
+  - stage:
+    displayName: 'Build'
+    jobs:
+      - job: BuildJob
+        displayName: ' Build Application'
+        pool:
+          name: 'Agent1'
+        steps:
+          - script: echo Build 
+          - task: Maven@4
+            inputs:
+             mavenPomFile: 'pom.xml'
+             publishJUnitResults: true
+             testResultsFiles: '**/surefire-reports/TEST-*.xml'
+             javaHomeOption: 'JDKVersion'
+             mavenVersionOption: 'Default'
+             mavenAuthenticateFeed: false
+             effectivePomSkip: false
+             sonarQubeRunAnalysis: false
+            
+          - task: CopyFiles@2
+            inputs:
+             Contents: '**'
+             TargetFolder: '$(Build.artifactstagingdirectory)'
+          - task: PublishBuildArtifacts@1
+            inputs:
+             PathtoPublish: '$(Build.ArtifactStagingDirectory)' # string. Required. Path to publish. Default: $(Build.ArtifactStagingDirectory).
+             ArtifactName: 'drop' # string. Required. Artifact name. Default: drop.
+             publishLocation: 'Container'
+          
+  - stage: 
+    jobs:
+      - job: Test
+        steps:
+          - script: echo Test
+        
+  - stage: 
+    jobs:
+       - job : Deploy
+         steps:
+           - script: echo Deploy
