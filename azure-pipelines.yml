@@ -22,10 +22,6 @@ steps:
     Contents: '**'
     TargetFolder: '$(Build.artifactstagingdirectory)'
     
-- task: CopyFiles@2
-  inputs:
-    Contents: '**'
-    TargetFolder: '$(Build.artifactstagingdirectory)'
     
 - task: PublishBuildArtifacts@1
   inputs:
