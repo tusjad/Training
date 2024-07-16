@@ -8,6 +8,13 @@ trigger:
 
 pool:
  name: 'Agent1'
+ 
+schedules:
+- cron: '* * * * *'
+  displayName: Every minute
+  branches:
+    include:
+    - development
 
 steps:
 
