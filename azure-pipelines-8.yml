@@ -10,7 +10,7 @@ pool:
   name: 'Agent1'
 
 steps:
-- task: Maven@4
+- task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: true
@@ -25,7 +25,7 @@ steps:
        SonarQube: 'sonar1'
        scannerMode: 'MSBuild'
        projectKey: 'Project1'
-       projectName: 'Project1'
+       
 
     
 
