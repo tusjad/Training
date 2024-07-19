@@ -20,7 +20,8 @@ steps:
 - task: SonarQubePrepare@6
   inputs:
     SonarQube: 'sonar1'
-    scannerMode: 'MSBuild'
+    scannerMode: other
+    
 - task: SonarQubePublish@6
   inputs:
       pollingTimeoutSec: '300'
