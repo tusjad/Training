@@ -20,11 +20,7 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
-- task: SonarQubePrepare@6
-  inputs:
-       SonarQube: 'sonar1'
-       scannerMode: 'MSBuild'
-       projectKey: 'Project1'
+
        
 
     
