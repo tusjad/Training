@@ -10,18 +10,9 @@ pool:
   name: 'Agent1'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 - task: SonarQubePrepare@6
   inputs:
     SonarQube: 'sonar1'
     scannerMode: other
     
-- task: SonarQubePublish@6
-  inputs:
-      pollingTimeoutSec: '300'
+
