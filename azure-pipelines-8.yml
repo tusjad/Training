@@ -10,6 +10,11 @@ pool:
   name: 'Agent1'
 
 steps:
+- task: SonarQubePrepare@6
+  inputs:
+       SonarQube: 'sonar1'
+       scannerMode: 'MSBuild'
+       projectKey: 'Project1'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
