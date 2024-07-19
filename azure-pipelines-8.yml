@@ -16,7 +16,7 @@ steps:
     SonarQube: 'sonar1'
     scannerMode: other
     projectKey: 'Project1'
-- task: SonarQubePostTest@1
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
