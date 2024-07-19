@@ -10,9 +10,22 @@ pool:
   name: 'Agent1'
 
 steps:
+- task: Maven@4
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: true
 - task: SonarQubePrepare@6
   inputs:
-    SonarQube: 'sonar1'
-    scannerMode: other
+       SonarQube: 'sonar1'
+       scannerMode: 'MSBuild'
+       projectKey: 'Project1'
+       projectName: 'Project1'
+
     
 
